@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\AccountController;
+
 
 
 Route::get('/', function () {
@@ -22,4 +25,16 @@ Route::get('/edit-supplier/{id}', [SupplierController::class, 'viewEditSupplierF
 Route::post('/save-edit-supplier', [SupplierController::class, 'saveSupplierChanges']);
 Route::get('/delete-supplier/{id}', [SupplierController::class, 'deleteSupplier']);
 
-Route::get('/transaction', [SupplierController::class, 'viewSuppliers']);
+Route::get('/transaction', [TransactionController::class, 'viewTransactions']);
+Route::get('/add-transaction-form', [TransactionController::class, 'viewAddTransactionForm']);
+Route::post('/save-new-transaction', [TransactionController::class, 'saveNewTransaction']);
+Route::get('/edit-transaction/{id}', [TransactionController::class, 'viewEditTransactionForm']);
+Route::post('/save-edit-transaction', [TransactionController::class, 'saveTransactionChanges']);
+Route::get('/delete-transaction/{id}', [TransactionController::class, 'deleteTransaction']);
+
+Route::get('/view-inventory', [InventoryController::class, 'viewInventory']);
+Route::get('/create-item', [InventoryController::class, 'createNewItem']);
+Route::post('/save-new-item', [InventoryController::class, 'saveNewItem']);
+Route::get('/update-item/{id}', [InventoryController::class, 'updateItem']);
+Route::post('/save-update-item', [InventoryController::class, 'saveUpdateItem']);
+Route::get('/delete-item/{id}', [InventoryController::class, 'deleteItem']);

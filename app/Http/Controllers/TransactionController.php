@@ -3,46 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Transaction;
+use Exception;
+use Session;
+use Log;
+use Auth;
 
 class TransactionController extends Controller
 {
-    public function viewSuppliers()
+    public function viewTransactions()
     {
-            Log::info('Listing the Suppliers');
-            // SELECT * FROM organizations
-            $suppliers = Supplier::all();
-            return view('suppliers.supplier', compact('suppliers'));
+            Log::info('Listing the Transactions');
+            // SELECT * FROM transactions
+            $transactions = Transaction::all();
+            return view('transactions.transaction', compact('transactions'));
         }
 
-    public function viewEditSupplierForm($id)
+    public function viewEditTransactionForm($id)
     {
         // SELECT * FROM suppliers WHERE id=$id
-        $supplier = Supplier::find($id);
-        if (!is_null($supplier)) {
-            return view('suppliers.edit-supplier', compact('supplier'));
+        $transaction = Transaction::find($id);
+        if (!is_null($transaction)) {
+            return view('transactions.edit-transaction', compact('transaction'));
         }
         Session::flash('error', 'We cannot find the record you are looking for.');
         return redirect()->back();
     }
 
-    public function viewAddSupplierForm()
+    public function viewAddTransactionForm()
     {
-        return view('suppliers.add-supplier');
+        return view('transactions.add-transaction');
     }
 
-    public function saveSupplierChanges(Request $request)
+    public function saveTransactionChanges(Request $request)
     {
         $validated = $request->validate([
-            'company_name' => 'required|max:300',
-            'company_province' => 'required|max:300',
-            'company_city' => 'required|max:300',
-            'company_email' => 'required|max:300',
-            'company_phone_number' => 'required|max:300'
+            'customer_name' => 'required|max:300',
+            'customer_payment_method' => 'required|max:300',
+            'customer_number_of_items_purchased' => 'required|max:300',
+            'customer_total' => 'required|max:300',
         ]);
 
         try {
             $id = $request->id;
-            $supplier = Supplier::find($id);
+            $transaction = Transaction::find($id);
             // UPDATE organizations SET
             // name=$request->name,
             // type=$request->type,
@@ -50,12 +54,11 @@ class TransactionController extends Controller
             // address=$request->address,
             // website_url=$request->website_url
             // WHERE id=$request->id
-            $supplier->update([
-                'company_name' => $request->company_name,
-                'company_province' => $request->company_province,
-                'company_city' => $request->company_city,
-                'company_email' => $request->company_email,
-                'company_phone_number' => $request->company_phone_number
+            $transaction->update([
+                'customer_name' => $request->customer_name,
+                'customer_payment_method' => $request->customer_payment_method,
+                'customer_number_of_items_purchased' => $request->customer_number_of_items_purchased,
+                'customer_total' => $request->customer_total,
             ]);
             // $organization->setName($request->name);
             // $organization->setAddress($request->address);
@@ -68,47 +71,44 @@ class TransactionController extends Controller
             Session::flash('error', 'Something went wrong, please try again later');
         }
         
-        return redirect('supplier');
+        return redirect('transaction');
     }
 
-    public function saveNewSupplier(Request $request)
+    public function saveNewTransaction(Request $request)
     {
         $validated = $request->validate([
-            'company_name' => 'required|max:300',
-            'company_province' => 'required|max:300',
-            'company_city' => 'required|max:300',
-            'company_email' => 'required|max:300',
-            'company_phone_number' => 'required|max:300'
+            'customer_name' => 'required|max:300',
+            'customer_number_of_items_purchased' => 'required|max:300',
+            'customer_total' => 'required|max:300',
         ]);
 
         try {
-            $sup = Supplier::create([
-                'company_name' => $request->company_name,
-                'company_province' => $request->company_province,
-                'company_city' => $request->company_city,
-                'company_email' => $request->company_email,
-                'company_phone_number' => $request->company_phone_number
+            $trn = Transaction::create([
+                'customer_name' => $request->customer_name,
+                'customer_payment_method' => $request->customer_payment_method,
+                'customer_number_of_items_purchased' => $request->customer_number_of_items_purchased,
+                'customer_total' => $request->customer_total,
             ]);
-            if (!is_null($sup)) {
-                Session::flash('message', 'Successfully added a new supplier');
+            if (!is_null($trn)) {
+                Session::flash('message', 'Successfully added a new transaction');
             } else {
-                throw new Exception('Unable to create a new supplier');
+                throw new Exception('Unable to create a new transaction');
             }
             
         } catch (Exception $e) {
             Session::flash('error', 'Something went wrong, please try again later');
         }
 
-        return redirect('supplier');
+        return redirect('transaction');
     }
 
-    public function deleteSupplier($id)
+    public function deleteTransaction($id)
     {
-        $supplier = Supplier::find($id);
-        $supplier->delete();
+        $transaction = Transaction::find($id);
+        $transaction->delete();
         // DELETE FROM organizations WHERE id=$id
 
         Session::flash('message', 'Successfully removed a record');
-        return redirect('supplier');
+        return redirect('transaction');
     }
 }

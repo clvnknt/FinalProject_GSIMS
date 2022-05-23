@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('customer_name', 300)->nullable();
+            $table->string('customer_number_of_items_purchased', 300)->nullable();
+            $table->string('customer_total', 300)->nullable();
+            $table->enum('customer_payment_method', ['cash', 'credit_card', 'debit_card', 'virtual_wallet'])->default('cash');
             $table->timestamps();
         });
     }

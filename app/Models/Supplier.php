@@ -49,32 +49,32 @@ class Supplier extends Model
     public function setCompanyName($value)
     {
         // UPDATE organizations SET name=$value
-        $this->name = $value;
+        $this->company_name = $value;
         return $this->save();
     }
 
     public function setCompanyProvince($value)
     {
         // UPDATE organizations SET address=$value
-        $this->address = $value;
+        $this->company_province = $value;
         return $this->save();
     }
 
     public function setCompanyCity($value)
     {
-        $this->contact_number = $value;
+        $this->company_city = $value;
         return $this->save();
     }
 
     public function setCompanyEmail($value)
     {
-        $this->type = $value;
+        $this->company_email = $value;
         return $this->save();
     }
 
     public function setCompanyPhoneNumber($value)
     {
-        $this->website_url = $value;
+        $this->company_phone_number = $value;
         return $this->save();
     }
 
