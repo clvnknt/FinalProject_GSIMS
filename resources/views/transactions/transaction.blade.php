@@ -20,7 +20,7 @@
                 <a class="btn btn-sm btn-primary" href="/add-transaction-form">
                     Add New Transaction
                 </a>
-            </div>
+            </div><br>
 
             <table class="table" id="transactions-table">
                 <thead>
@@ -58,6 +58,9 @@
 </div>
 
 <script>
+    $(document).ready( function () {
+    $('#transactions-table').DataTable();
+} );
 $(document).ready( function () {
     $('#transactions-table').DataTable();
 } );

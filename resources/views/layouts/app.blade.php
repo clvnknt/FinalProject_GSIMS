@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -78,11 +82,6 @@
                                     </a>
                                 <a class="dropdown-item" href="{{ url('transaction') }}">
                                         {{ __('Transactions') }}
-                                    </a>
-                                    @if (Auth::user()->is_admin == 1)
-                                    <a class="dropdown-item" href="{{ url('account') }}">
-                                        {{ __('Accounts') }}
-                                        @endif
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -12,15 +12,10 @@
             @endif
             @if (Session::has('error'))
             <div class="alert alert-danger" role="alert">
-                {{ Session::get('error') }}
-            </div>
+                {{ Session::get('error') }}</div>
             @endif
 
-            <div>
-                <a class="btn btn-sm btn-primary" href="add-supplier-form">
-                    Add New Supplier
-                </a>
-            </div>
+            <div><a class="btn btn-sm btn-primary" href="add-supplier-form"> Add New Supplier </a></div><br>
 
             <table class="table" id="suppliers-table">
                 <thead>
@@ -61,6 +56,10 @@
 </div>
 
 <script>
+    $(document).ready( function () {
+    $('#suppliers-table').DataTable();
+} );
+
 $(document).ready( function () {
     $('#suppliers-table').DataTable();
 } );
