@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AccountController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +33,10 @@ Route::get('/delete-transaction/{id}', [TransactionController::class, 'deleteTra
 
 Route::get('/item', [ItemController::class, 'viewItems']);
 Route::get('/add-item-form', [ItemController::class, 'viewAddItemForm']);
-Route::post('/save-new-item', [ItemController::class, 'saveNewTransaction']);
-Route::get('/edit-item/{id}', [ItemController::class, 'viewEditTransactionForm']);
-Route::post('/save-edit-item', [ItemController::class, 'saveTransactionChanges']);
-Route::get('/delete-item/{id}', [ItemController::class, 'deleteTransaction']);
+Route::post('/save-new-item', [ItemController::class, 'saveNewItem']);
+Route::get('/edit-item/{id}', [ItemController::class, 'viewEditItemForm']);
+Route::post('/save-edit-item', [ItemController::class, 'saveItemChanges']);
+Route::get('/delete-item/{id}', [ItemController::class, 'deleteItem']);
+
+Route::post('/update-profile',[UserController::class, 'profileUpdate']);
+

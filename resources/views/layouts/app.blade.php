@@ -71,7 +71,7 @@
                                         {{ __('Dashboard') }}
                                     </a>
                                     @if (Auth::user()->is_admin == 1)
-                                <a class="dropdown-item" href="{{ url('inventory') }}">
+                                <a class="dropdown-item" href="{{ url('/item') }}">
                                         {{ __('Inventory') }}
                                         @endif
                                     </a>
@@ -82,6 +82,9 @@
                                     </a>
                                 <a class="dropdown-item" href="{{ url('transaction') }}">
                                         {{ __('Transactions') }}
+                                    </a>
+                                <a class="dropdown-item" href="{{ url('update-profile') }}">
+                                        {{ __('My Profile') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

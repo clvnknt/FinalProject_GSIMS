@@ -31,7 +31,7 @@
                     </select>
                 </div>
                 <br><button type="submit" class="btn btn-primary">Save Changes</button>
-                <a class="btn btn-danger" href="{{ url('supplier') }}">Cancel</a>
+                <a class="btn btn-danger" href="{{ url('transaction') }}">Cancel</a>
 
             </form>
         </div>

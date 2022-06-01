@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'item_name',
-        'company_province',
-        'company_city',
-        'company_email',
-        'company_phone_number'
+        'item_company',
+        'console_type',
+        'item_quantity',
     ];
 
     public function getId()
@@ -23,56 +23,62 @@ class Item extends Model
 
     public function getItemName()
     {
-        return $this->company_name;
+        return $this->item_name;
     }
 
-    public function getCompanyProvince()
+    public function getItemCompany()
     {
-        return $this->company_province;
+        return $this->item_company;
     }
 
-    public function getCompanyCity()
+    public function getConsoleType()
     {
-        return $this->company_city;
+        return $this->console_type;
     }
 
-    public function getCompanyEmail()
+    public function getItemQuantity()
     {
-        return $this->company_email;
+        return $this->item_company;
     }
 
-    public function getCompanyPhoneNumber()
+    public function setItemName($value)
     {
-        return $this->company_phone_number;
-    }
-
-    public function setCompanyName($value)
-    {
-        $this->company_name = $value;
+        // UPDATE transactions SET name=$value
+        $this->item_name = $value;
         return $this->save();
     }
 
-    public function setCompanyProvince($value)
+    public function setItemCompany($value)
     {
-        $this->company_province = $value;
+        // UPDATE transactions SET address=$value
+        $this->item_company = $value;
         return $this->save();
     }
 
-    public function setCompanyCity($value)
+    public function isNintendoSwitch()
     {
-        $this->company_city = $value;
+        return ($this->nintendo_switch == 'nintendo_switch');
+    }
+
+    public function isPlayStationFour()
+    {
+        return ($this->console_type == 'ps4');
+    }
+
+    public function isPlayStationFive()
+    {
+        return ($this->console_type == 'ps5');
+    }
+
+    public function isXbox()
+    {
+        return ($this->console_type == 'xbox');
+    }
+
+    public function setItemQuantity($value)
+    {
+        $this->item_quantity = $value;
         return $this->save();
     }
 
-    public function setCompanyEmail($value)
-    {
-        $this->company_email = $value;
-        return $this->save();
-    }
-
-    public function setCompanyPhoneNumber($value)
-    {
-        $this->company_phone_number = $value;
-        return $this->save();
-    }
 }
