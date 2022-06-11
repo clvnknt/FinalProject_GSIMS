@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-20">
         <h1>Inventory</h1><br>
             @if (Session::has('message'))
             <div class="alert alert-success" role="alert">
@@ -17,9 +17,8 @@
             @endif
 
             <div>
-                <a class="btn btn-sm btn-primary" href="/add-item-form">
-                    Add New Item
-                </a>
+                <a class="btn btn-sm btn-primary" href="/add-item-form">Add New Item</a>
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('#') }}">Export to PDF</a>
             </div><br>
 
             <table class="table" id="items-table">

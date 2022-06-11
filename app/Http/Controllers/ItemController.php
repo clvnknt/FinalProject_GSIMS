@@ -35,7 +35,7 @@ class ItemController extends Controller
         return view('items.add-item');
     }
 
-    public function saveTransactionChanges(Request $request)
+    public function saveItemChanges(Request $request)
     {
         $validated = $request->validate([
             'item_name' => 'required|max:300',
@@ -46,25 +46,12 @@ class ItemController extends Controller
         try {
             $id = $request->id;
             $item = Item::find($id);
-            // UPDATE organizations SET
-            // name=$request->name,
-            // type=$request->type,
-            // contact_number=$request->contact_number,
-            // address=$request->address,
-            // website_url=$request->website_url
-            // WHERE id=$request->id
             $item->update([
                 'item_name' => $request->item_name,
                 'item_company' => $request->item_company,
                 'console_type' => $request->console_type,
                 'item_quantity' => $request->item_quantity,
             ]);
-            // $organization->setName($request->name);
-            // $organization->setAddress($request->address);
-            // $organization->setContactNumber($request->contact_number);
-            // $organization->setType($request->type);
-            // $organization->setWebsiteURL($request->website_url);
-
             Session::flash('message', 'Successfully updated Item Information');
         } catch (Exception $e) {
             Session::flash('error', 'Something went wrong, please try again later');

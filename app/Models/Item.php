@@ -38,7 +38,7 @@ class Item extends Model
 
     public function getItemQuantity()
     {
-        return $this->item_company;
+        return $this->item_quantity;
     }
 
     public function setItemName($value)
@@ -50,7 +50,6 @@ class Item extends Model
 
     public function setItemCompany($value)
     {
-        // UPDATE transactions SET address=$value
         $this->item_company = $value;
         return $this->save();
     }

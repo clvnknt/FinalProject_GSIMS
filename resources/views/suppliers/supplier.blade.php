@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-20">
         <h1>Suppliers</h1><br>
             @if (Session::has('message'))
             <div class="alert alert-success" role="alert">

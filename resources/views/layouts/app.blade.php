@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('https://www.youtube.com/watch?v=dQw4w9WgXcQ') }}">
+                <a class="navbar-brand" href="{{ url('') }}">
                     Game Store Inventory Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -83,10 +83,6 @@
                                 <a class="dropdown-item" href="{{ url('transaction') }}">
                                         {{ __('Transactions') }}
                                     </a>
-                                <a class="dropdown-item" href="{{ url('update-profile') }}">
-                                        {{ __('My Profile') }}
-                                    </a>
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
