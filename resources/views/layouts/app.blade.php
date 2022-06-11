@@ -83,6 +83,11 @@
                                 <a class="dropdown-item" href="{{ url('transaction') }}">
                                         {{ __('Transactions') }}
                                     </a>
+                                    @if (Auth::user()->is_admin == 1)
+                                <a class="dropdown-item" href="{{ url('user') }}">
+                                        {{ __('Accounts') }}
+                                        @endif
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

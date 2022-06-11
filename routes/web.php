@@ -5,8 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ItemController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +38,8 @@ Route::post('/save-new-item', [ItemController::class, 'saveNewItem']);
 Route::get('/edit-item/{id}', [ItemController::class, 'viewEditItemForm']);
 Route::post('/save-edit-item', [ItemController::class, 'saveItemChanges']);
 Route::get('/delete-item/{id}', [ItemController::class, 'deleteItem']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/edit-user/{id}', [UserController::class, 'viewEditUserForm']);
+Route::post('/save-edit-user'. [UserController::class, 'saveUserChanges']);
+Route::get('/delete-user/{id}', [UserController::class, 'deleteUser']);
