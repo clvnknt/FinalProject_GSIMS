@@ -42,11 +42,13 @@
                         <td>{{ $trn->getCustomerTotal() }}</td>
                         <td>{{ $trn->getCustomerPaymentMethod() }}</td>
                         <td>
+                        @if (Auth::user()->is_admin == 1)
                             <a href="/edit-transaction/{{ $trn->getId() }}" class="btn btn-primary btn-sm">
                                 Edit
                             </a>
                             <a onclick="return confirmDelete()" href="/delete-transaction/{{ $trn->getId() }}" class="btn btn-danger btn-sm">
                                 Delete
+                                @endif
                             </a>
                         </td>
                     </tr>

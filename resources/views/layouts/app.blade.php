@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('') }}">
+                <a class="navbar-brand" href="{{ url('https://www.youtube.com/watch?v=dQw4w9WgXcQ') }}">
                     Game Store Inventory Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -70,15 +70,11 @@
                                 <a class="dropdown-item" href="{{ url('dashboard') }}">
                                         {{ __('Dashboard') }}
                                     </a>
-                                    @if (Auth::user()->is_admin == 1)
                                 <a class="dropdown-item" href="{{ url('/item') }}">
                                         {{ __('Inventory') }}
-                                        @endif
                                     </a>
-                                    @if (Auth::user()->is_admin == 1)
                                     <a class="dropdown-item" href="{{ url('supplier') }}">
                                         {{ __('Suppliers') }}
-                                        @endif
                                     </a>
                                 <a class="dropdown-item" href="{{ url('transaction') }}">
                                         {{ __('Transactions') }}

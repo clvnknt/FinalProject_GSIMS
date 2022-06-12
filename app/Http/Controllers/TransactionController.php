@@ -47,25 +47,12 @@ class TransactionController extends Controller
         try {
             $id = $request->id;
             $transaction = Transaction::find($id);
-            // UPDATE organizations SET
-            // name=$request->name,
-            // type=$request->type,
-            // contact_number=$request->contact_number,
-            // address=$request->address,
-            // website_url=$request->website_url
-            // WHERE id=$request->id
             $transaction->update([
                 'customer_name' => $request->customer_name,
                 'customer_payment_method' => $request->customer_payment_method,
                 'customer_number_of_items_purchased' => $request->customer_number_of_items_purchased,
                 'customer_total' => $request->customer_total,
             ]);
-            // $organization->setName($request->name);
-            // $organization->setAddress($request->address);
-            // $organization->setContactNumber($request->contact_number);
-            // $organization->setType($request->type);
-            // $organization->setWebsiteURL($request->website_url);
-
             Session::flash('message', 'Successfully updated Supplier Information');
         } catch (Exception $e) {
             Session::flash('error', 'Something went wrong, please try again later');

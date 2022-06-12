@@ -51,6 +51,7 @@ class ItemController extends Controller
                 'item_company' => $request->item_company,
                 'console_type' => $request->console_type,
                 'item_quantity' => $request->item_quantity,
+                'price' => $request->price,
             ]);
             Session::flash('message', 'Successfully updated Item Information');
         } catch (Exception $e) {
@@ -74,6 +75,7 @@ class ItemController extends Controller
                 'item_company' => $request->item_company,
                 'console_type' => $request->console_type,
                 'item_quantity' => $request->item_quantity,
+                'price' => $request->price,
             ]);
             if (!is_null($itm)) {
                 Session::flash('message', 'Successfully added a new item');

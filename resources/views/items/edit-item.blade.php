@@ -29,6 +29,10 @@
                     <label>Item Quantity</label>
                     <input type="text" class="form-control" name="item_quantity" value="{{ $item->getItemQuantity() }}" required>
                 </div>
+                <div class="form-group">
+                <label>Price</label>
+                    <input type="text" class="form-control" name="price" value="{{ $item->getPrice() }}" required>
+                </div>
                 <br><button type="submit" class="btn btn-primary">Save Changes</button>
                 <a class="btn btn-danger" href="{{ url('item') }}">Cancel</a>
 

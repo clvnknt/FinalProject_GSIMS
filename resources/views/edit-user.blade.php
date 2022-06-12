@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1>Edit Transaction Record</h1>
+            <h1>Edit Account Information</h1>
 
             <form action="/save-edit-user" method="POST">
                 <input type="hidden" name="id" value="{{ $user->getId() }}" />

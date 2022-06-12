@@ -11,27 +11,15 @@ use Auth;
 
 class SupplierController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function viewSuppliers()
     {
         $user = Auth::user();
 
-        if ($user->isAdmin()) {
             Log::info('listing the suppliers');
-            // SELECT * FROM organizations
             $suppliers = Supplier::all();
             return view('suppliers.supplier', compact('suppliers'));
-        } else {
-            Session::flash('error', 'Only admins are allowed to open this page');
         }
-
-        return redirect('/dashboard');
-
-    }
 
     public function viewEditSupplierForm($id)
     {

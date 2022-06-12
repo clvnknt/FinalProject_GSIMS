@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_admin')->default(false)->after('email');
-            //ALTER TABLE ADD COLUMN * is_admin TINYINT DEFAULT 0;
         });
     }
 

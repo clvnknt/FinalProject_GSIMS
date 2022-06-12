@@ -18,7 +18,6 @@
 
             <div>
                 <a class="btn btn-sm btn-primary" href="/add-item-form">Add New Item</a>
-                <a class="btn btn-sm btn-primary" href="{{ URL::to('#') }}">Export to PDF</a>
             </div><br>
 
             <table class="table" id="items-table">
@@ -29,6 +28,7 @@
                         <th>Item Company</th>
                         <th>Console Type</th>
                         <th>Item Quantity</th>
+                        <th>Price</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -40,13 +40,16 @@
                         <td>{{ $itm->getItemCompany() }}</td>
                         <td>{{ $itm->getConsoleType() }}</td>
                         <td>{{ $itm->getItemQuantity() }}</td>
+                        <td>{{ $itm->getPrice() }}</td>
                         <td>
+                        @if (Auth::user()->is_admin == 1)
                             <a href="/edit-item/{{ $itm->getId() }}" class="btn btn-primary btn-sm">
                                 Edit
                             </a>
                             <a onclick="return confirmDelete()" href="/delete-item/{{ $itm->getId() }}" class="btn btn-danger btn-sm">
                                 Delete
                             </a>
+                             @endif
                         </td>
                     </tr>
                     @endforeach

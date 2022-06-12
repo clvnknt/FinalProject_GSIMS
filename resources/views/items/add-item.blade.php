@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1>Add a New Transaction</h1>
+            <h1>Add a New Item</h1>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -36,6 +36,10 @@
                 <div class="form-group">
                     <label>Item Quantity</label>
                     <input type="text" class="form-control" name="item_quantity">
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="price">
                 </div>
                 <br><button type="submit" class="btn btn-primary">Save Changes</button>
                 <a class="btn btn-danger" href="{{ url('item') }}">Cancel</a>

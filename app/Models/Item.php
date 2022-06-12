@@ -14,6 +14,7 @@ class Item extends Model
         'item_company',
         'console_type',
         'item_quantity',
+        'price',
     ];
 
     public function getId()
@@ -39,6 +40,11 @@ class Item extends Model
     public function getItemQuantity()
     {
         return $this->item_quantity;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     public function setItemName($value)
@@ -77,6 +83,12 @@ class Item extends Model
     public function setItemQuantity($value)
     {
         $this->item_quantity = $value;
+        return $this->save();
+    }
+
+    public function setPrice($value)
+    {
+        $this->price = $value;
         return $this->save();
     }
 

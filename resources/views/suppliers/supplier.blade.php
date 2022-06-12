@@ -39,13 +39,14 @@
                         <td>{{ $sup->getCompanyEmail() }}</td>
                         <td>{{ $sup->getCompanyPhoneNumber() }}</td>
                         <td>
-                        </a>
+                        @if (Auth::user()->is_admin == 1)
                         <a href="/edit-supplier/{{ $sup->getId() }}" class="btn btn-primary btn-sm">
                                 Edit
                             </a>
                             <a onclick="return confirmDelete()" href="/delete-supplier/{{ $sup->getId() }}" class="btn btn-danger btn-sm">
                                 Delete
                             </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
