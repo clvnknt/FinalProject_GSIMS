@@ -1,0 +1,8 @@
+body {
+    background-image: url('/images/welcome.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+
+    font-size: large;
+}

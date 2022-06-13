@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<link href="{{ asset('assets/css/tranwall.css') }}" rel="stylesheet">
 <div class="container">
+<div class="p-3 mb-2 bg-white text-dark">
     <div class="row justify-content-center">
         <div class="col-md-20">
         <h1>Transactions</h1><br>

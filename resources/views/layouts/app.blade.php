@@ -7,38 +7,23 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Game Store Inventory Management System') }}</title>
+    <title>GameStar Inventory</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="//cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js" defer></script>
-    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('https://www.youtube.com/watch?v=dQw4w9WgXcQ') }}">
-                    Game Store Inventory Management System
+                <a class="navbar-brand ps-1" href="{{ url('/') }}" >
+                <img src="{{ URL('images/brand.png') }}" alt="brand-nav">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -65,25 +50,8 @@
                                     @endif
                                 </a>
                                 
+                    
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                <a class="dropdown-item" href="{{ url('dashboard') }}">
-                                        {{ __('Dashboard') }}
-                                    </a>
-                                <a class="dropdown-item" href="{{ url('/item') }}">
-                                        {{ __('Inventory') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('supplier') }}">
-                                        {{ __('Suppliers') }}
-                                    </a>
-                                <a class="dropdown-item" href="{{ url('transaction') }}">
-                                        {{ __('Transactions') }}
-                                    </a>
-                                    @if (Auth::user()->is_admin == 1)
-                                <a class="dropdown-item" href="{{ url('user') }}">
-                                        {{ __('Accounts') }}
-                                        @endif
-                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -105,5 +73,9 @@
             @yield('content')
         </main>
     </div>
+
+
+     <!-- Scripts -->
+     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
 </body>
 </html>

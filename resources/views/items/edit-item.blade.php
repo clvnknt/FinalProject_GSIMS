@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<link href="{{ asset('assets/css/edit.css') }}" rel="stylesheet">
 <div class="container">
+<div class="p-3 mb-2 bg-white text-dark">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1>Edit Item Record</h1>

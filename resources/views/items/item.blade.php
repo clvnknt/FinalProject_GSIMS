@@ -1,8 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<link href="{{ asset('assets/css/itemwall.css') }}" rel="stylesheet">
 <div class="container">
-    <div class="row justify-content-center">
+   <div class="p-3 mb-2 bg-white text-dark">  
+      <div class="row justify-content-center">
         <div class="col-md-20">
         <h1>Inventory</h1><br>
             @if (Session::has('message'))
@@ -55,6 +57,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 </div>
