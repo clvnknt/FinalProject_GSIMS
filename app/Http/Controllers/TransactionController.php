@@ -14,14 +14,12 @@ class TransactionController extends Controller
     public function viewTransactions()
     {
             Log::info('Listing the Transactions');
-            // SELECT * FROM transactions
             $transactions = Transaction::all();
             return view('transactions.transaction', compact('transactions'));
         }
 
     public function viewEditTransactionForm($id)
     {
-        // SELECT * FROM suppliers WHERE id=$id
         $transaction = Transaction::find($id);
         if (!is_null($transaction)) {
             return view('transactions.edit-transaction', compact('transaction'));
@@ -53,7 +51,7 @@ class TransactionController extends Controller
                 'customer_number_of_items_purchased' => $request->customer_number_of_items_purchased,
                 'customer_total' => $request->customer_total,
             ]);
-            Session::flash('message', 'Successfully updated Supplier Information');
+            Session::flash('message', 'Successfully updated Transaction Information');
         } catch (Exception $e) {
             Session::flash('error', 'Something went wrong, please try again later');
         }
@@ -93,7 +91,6 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::find($id);
         $transaction->delete();
-        // DELETE FROM organizations WHERE id=$id
 
         Session::flash('message', 'Successfully removed a record');
         return redirect('transaction');

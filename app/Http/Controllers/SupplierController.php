@@ -50,13 +50,6 @@ class SupplierController extends Controller
         try {
             $id = $request->id;
             $supplier = Supplier::find($id);
-            // UPDATE organizations SET
-            // name=$request->name,
-            // type=$request->type,
-            // contact_number=$request->contact_number,
-            // address=$request->address,
-            // website_url=$request->website_url
-            // WHERE id=$request->id
             $supplier->update([
                 'company_name' => $request->company_name,
                 'company_province' => $request->company_province,
@@ -64,11 +57,7 @@ class SupplierController extends Controller
                 'company_email' => $request->company_email,
                 'company_phone_number' => $request->company_phone_number
             ]);
-            // $organization->setName($request->name);
-            // $organization->setAddress($request->address);
-            // $organization->setContactNumber($request->contact_number);
-            // $organization->setType($request->type);
-            // $organization->setWebsiteURL($request->website_url);
+
 
             Session::flash('message', 'Successfully updated Supplier Information');
         } catch (Exception $e) {
@@ -113,7 +102,6 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::find($id);
         $supplier->delete();
-        // DELETE FROM organizations WHERE id=$id
 
         Session::flash('message', 'Successfully removed a record');
         return redirect('supplier');

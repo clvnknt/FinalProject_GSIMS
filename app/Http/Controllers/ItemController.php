@@ -14,14 +14,14 @@ class ItemController extends Controller
     public function viewItems()
     {
             Log::info('Listing the Items');
-            // SELECT * FROM transactions
+            // SELECT * FROM items
             $items = Item::all();
             return view('items.item', compact('items'));
         }
 
     public function viewEditItemForm($id)
     {
-        // SELECT * FROM suppliers WHERE id=$id
+        // SELECT * FROM items WHERE id=$id
         $item = Item::find($id);
         if (!is_null($item)) {
             return view('items.edit-item', compact('item'));
@@ -94,7 +94,7 @@ class ItemController extends Controller
     {
         $item = Item::find($id);
         $item->delete();
-        // DELETE FROM organizations WHERE id=$id
+        // DELETE FROM items WHERE id=$id
 
         Session::flash('message', 'Successfully removed a record');
         return redirect('item');
